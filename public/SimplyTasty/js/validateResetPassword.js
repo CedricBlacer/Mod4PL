@@ -23,6 +23,6 @@ function validateResetPassword() {
         alert('Password max length is 12');
     }
     else {
-        window.location.href = "ResetPassword.html";
+        window.location.href = "/ResetPassword";
     }
 }

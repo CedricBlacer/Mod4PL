@@ -82,7 +82,7 @@ function signIn(){
 		// check is user input matches email and password of a current index of the objUsers array
 		if(email == objUsers[i].email && password == objUsers[i].password) {
 			alert(email + " is Signed in! Redirecting to Home Page ")
-            window.location.href="index.html"
+            window.location.href="/"
 			// stop the function if this is found to be true
 			return
 		}
@@ -120,6 +120,6 @@ function signUp() {
 
     localStorage.setItem("Email", JSON.stringify(objUsers))
 
-    window.location.href="CreateAccount.html"
+    window.location.href="/CreateAccount"
 
 }
