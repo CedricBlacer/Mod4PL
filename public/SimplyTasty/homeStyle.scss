@@ -1,0 +1,68 @@
+$widthForMiniBanner: 190px;
+$topMargin: 30px;
+$rightMargin: 250px;
+$mainColor: #CE4826 ;  
+$textPosition: center;
+$fontSize: 30px;
+
+.ourMenuSize2 {
+    height: 120px;
+    padding: 1px;
+    text-align: center;
+    font-family: "Merriweather",sans-serif;
+    margin-bottom: 0px;
+    background-color: $mainColor;
+}
+
+
+#mainBanner{
+    display: block;
+    width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $topMargin;
+}
+
+.miniBanner{
+    text-align:center;
+}
+
+#img2{
+    width: $widthForMiniBanner;
+    margin-right: $rightMargin;
+}
+
+#img3{
+    width: $widthForMiniBanner;
+    margin-right: $rightMargin;
+}
+
+#img4{
+    width: 202px;
+}
+
+.aboutUs{
+    background-color: $mainColor;
+    text-align: $textPosition;
+    height: 50px;
+}
+
+#aboutUsDesc{
+    text-align: $textPosition;
+    font-size: $fontSize;
+}
+
+.footer{
+    padding-top: 10px;
+    background-color: black;
+    text-align: $textPosition;
+    height: 150px;
+    color: white;
+}
+
+#contactUs{
+    text-align: left;
+    margin-left: 150px;
+    
+}
+

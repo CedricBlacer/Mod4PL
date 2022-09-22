@@ -1,0 +1,58 @@
+
+.container{
+    margin: 100px;
+    width: max-content;
+    text-align:center;
+    display:flex;
+    justify-content: center;
+}
+.shop-item{  
+    text-align: center;
+    display: inline-block;
+    margin: 5px;
+  
+}
+.card img{
+    width: 300px;
+    padding: 5px;
+}
+.foodTitle{
+    font-weight: bold;
+    
+}
+button{
+    border: 2px solid #CE4826;
+    background-color: #CE4826;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition-duration: 0.5s;
+    color: white;
+    width: 100%;
+    display:center;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+
+img.foodImg{
+    float: left;
+    width: 400px;
+    height: 350px;
+   object-fit: cover;
+}
+.wrapper-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    
+}
+.wrapper-grid-snack{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 210px;
+ 
+  
+}
+

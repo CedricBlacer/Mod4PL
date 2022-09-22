@@ -1,0 +1,240 @@
+.navbar{
+    width: 90%;
+    margin: auto;
+    padding: 1px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "inter";
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 20px;
+    color: black;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color:black (68, 0, 255);
+    font:(inter)
+}
+
+.ourMenuSize {
+    height: 120px;
+    padding: 1px;
+    text-align: center;
+    font-family: "Merriweather",sans-serif;
+    margin-bottom: 0px;
+    background-color:#CE4826;
+    font-size: 30px;
+    justify-content: center;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+} 
+.thankyou{
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+    font-family:"Roboto"
+    
+}
+.text{
+    font-family: "Merriweather",sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+.Checkout{
+    font-size: 10px;
+    text-align: center;
+    font-family:"Roboto"
+}
+.logo{
+    margin-right:auto;
+    height: 200px;
+    width: 200px;
+}
+.navbar ul li:hover{
+    color: #CE4826;
+    cursor: pointer;
+    
+}
+.column{
+    
+    float: left;
+    width: 33%;
+    padding: 3px;
+         
+}
+.row::after{
+    
+    content: "";
+    display: flex;
+    clear: both;
+    
+    
+}
+.categories{
+    background-color: black;
+    background-size: auto;
+    display: flex;
+    justify-content: center;
+    margin-left: 0px;
+    margin-right: 0px;
+    
+}
+.categories a{
+    color:white;
+    font-size: larger;
+    text-decoration: none;
+}
+.categories a:hover{
+    color: #CE4826;
+    
+}
+
+#SignInBtn_Acc{
+    background-color: #d04c24 !important; 
+    padding: 20px 195px;
+
+}
+
+#SignupBtn_Acc{
+    padding: 19px 200px;
+    font-size: small;
+    
+}
+
+#CreateAccountBtn{
+    background-color: #d04c24 !important; 
+    padding: 14px 148px;
+    font-family: 'Inter';
+    font-weight: bolder;
+}
+
+#CreateAccMsg{
+    font-size: x-large;
+    text-align: center;
+    margin-top: 15%;
+}
+
+#ForgotPwMsg{
+    font-size: x-large;
+    text-align: center;
+    margin-top: 10%;
+}
+
+#SendEmailBtn{
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+#SendEmailMsg{
+    font-size: x-large;
+    text-align: center;
+    margin-top: 15%;
+}
+
+#EnterNewPwMsg{
+    font-size: x-large;
+    text-align: center;
+    margin-top: 8%;    
+}
+
+#ResetPwBtn{
+    background-color: #d04c24 !important; 
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-weight: bold;
+}
+
+#ResetPwMsg{
+    font-size: x-large;
+    text-align: center;
+    margin-top: 15%;
+}
+
+.form-control{
+    background-color: rgb(235, 235, 235);
+}
+.container{
+    padding-top: 30px;
+
+}
+.container-ci{
+    padding-top: 30px;
+}
+.C-SInfo{
+    display: block;
+   
+
+
+}
+.text-ci{
+    font-family: "Merriweather",sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+.csheader{
+    font-family: "Merriweather";
+    font-size: 50px;
+}
+.text-input input{
+    width: 330px;
+    height: 25px;
+    background-color: rgba(192, 192, 192, 0.714);
+}
+.text-input-addr input{
+    width: 500px;
+    height: 25px;
+    background-color: rgba(192, 192, 192, 0.714);
+}
+.PAYMENT-BUTTON{
+    justify-content: center;
+    text-align: center;
+    padding-top: 90px;
+    
+}
+.PM-BUTTON{
+    background-color: black;
+    color: white;
+    width: 300px;
+    height: 40px;
+    font-family: 'Inter';
+    font-weight: bolder;
+}
+.demobox {
+    background-color: rgba(233, 237, 233, 0.927) ;
+    padding: 100px ;
+    width: 40%;
+    height: 175px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.orderSummaryContainer{
+    padding-top: 30px;
+    text-align: center;
+    width: 65%;
+}
+.ordersummary{
+    display: block;
+    text-align: center;
+    width: 51%;
+}
+td{
+    padding: 30px 90px;
+    
+    
+    
+}
+
+    
