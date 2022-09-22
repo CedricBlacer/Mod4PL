@@ -1,35 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Snacks</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="addtoCartStyles2.css">
-</head>
+    <%- include('./partials/head.ejs') %>
 <body>
     <!--- Header --->
     <header>
         <div class="navbar">
-                
-                <p>
-                    <a href = "homepage.html"><img class="" src="img/logonobg.png" width="100" height="auto">
-                </p></a>
-                
-                    <ul>
-                        <a href="index.html"><li>Home</li></a>
-                        <a href="OurMenu.html"><li style="color: #CE4826;">Our Menu</li></a>
-                        <a href="Cart.html"><li>Cart</li></a>
-                        <a href="Account.html"><li>Account</li></a>
-                        
-                    </ul>        
+            <p><a href = "/index">
+            <img src="SimplyTasty/img/logonobg.png" width="100" height="auto">
+            </p></a>
+                <ul>
+                    <a href="/index"><li>Home</li></a>
+                    <a href="/OurMenu"><li style="color: #CE4826;">Our Menu</li></a>
+                    <a href="/Cart"><li>Cart</li></a>
+                    <a href="/Account"><li>Account</li></a>
+                </ul>
         </div>
+    </div>
     </header>
 
     <!--Main Page Content-->
@@ -55,15 +41,15 @@
     </div>
 --> 
    <div class="wrapper-grid">
-        <div class="categories"><a href="Meals.html"><p style="text-align:center">Meals</a></div>
-        <div class="categories"><a href="Snacks.html"><p style="text-align:center">Snacks</a></div>
-        <div class="categories"><a href="Desserts.html"><p style="text-align:center">Desserts</a></div>
+        <div class="categories"><a href="/Meals"><p style="text-align:center">Meals</a></div>
+        <div class="categories"><a href="/Snacks"><p style="text-align:center">Snacks</a></div>
+        <div class="categories"><a href="/Desserts"><p style="text-align:center">Desserts</a></div>
    </div>
 
     <div class="wrapper-grid-snack">
     <div class="container" id="item1">
         <div class ="card">
-            <img class = "foodImg" src="img/snack1.jpg" id="foodImg" >
+            <img class = "foodImg" src="SimplyTasty/img/snack1.jpg" id="foodImg" >
             <div class ="foodTitle">Chocolate Chip Cookies</div>  
             <div class ="foodPrice"> ₱50 </div>  
             <div ><button>Add to Cart</button></div>        
@@ -74,7 +60,7 @@
 
     <div class="container" id="item2">
         <div class ="card">
-            <img class = "foodImg" src="img/snack2.jpg" id="foodImg">
+            <img class = "foodImg" src="SimplyTasty/img/snack2.jpg" id="foodImg">
             <div class ="foodTitle"> Pizza</div>   
             <div class ="foodPrice"> ₱400 </div>  
             <div ><button>Add to Cart</button></div>      
@@ -85,7 +71,7 @@
 
     <div class="container" id="item3">
         <div class ="card">
-            <img  class = "foodImg"src="img/snack3.jpg" id="foodImg">
+            <img  class = "foodImg"src="SimplyTasty/img/snack3.jpg" id="foodImg">
             <div class ="foodTitle"> French Fries</div> 
             <div class ="foodPrice"> ₱50 </div>  
             <div ><button>Add to Cart</button></div>        
@@ -96,7 +82,7 @@
     
     <div class="container" id="item3">
         <div class ="card">
-            <img  class = "foodImg"src="img/snack4.jpg" id="foodImg">
+            <img  class = "foodImg"src="SimplyTasty/img/snack4.jpg" id="foodImg">
             <div class ="foodTitle"> Nachos </div>  
             <div class ="foodPrice"> ₱50 </div>  
             <div ><button>Add to Cart</button></div>        

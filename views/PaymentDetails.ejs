@@ -1,31 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>PAYMENT DETAILS</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <%- include('./partials/head.ejs') %>
 <body>
     <!--- Header --->
     <header>
         <div class="navbar">
-                <p><a href = "index.html">
-                <img src="img/logonobg.png" width="100" height="auto">
-                </p></a>
-                    <ul>
-                        <a href="index.html"><li>Home</li></a>
-                        <a href="OurMenu.html"><li>Our Menu</li></a>
-                        <a href="Cart.html"><li>Cart</li></a>
-                        <a href="Account.html"><li>Account</li></a>
-                    </ul>
-            </div>
+            <p><a href = "/index">
+            <img src="SimplyTasty/img/logonobg.png" width="100" height="auto">
+            </p></a>
+                <ul>
+                    <a href="/index"><li>Home</li></a>
+                    <a href="/OurMenu"><li>Our Menu</li></a>
+                    <a href="/Cart"><li style="color: #CE4826;">Cart</li></a>
+                    <a href="/Account"><li>Account</li></a>
+                </ul>
         </div>
+    </div>
         <div class="ourMenuSize">
             <h1 style="font-size:50px;">PAYMENT DETAILS</h1> 
     </div>
@@ -33,7 +23,7 @@
     </header>
 
     <!--Main Page Content-->
-    <form action="PlaceOrder.html">
+    <form action="/PlaceOrder">
         <div class="container">
         <div class="text-ci">
                 <input type="radio" class="big" name="mode" required>
@@ -47,14 +37,14 @@
                 <input type="text" placeholder="GCASH NUMBER" required>
             </div>
         </div>
-            <center><img src="img/GCASHQR.jpg" width="300" height="auto"></center>
+            <center><img src="SimplyTasty/img/GCASHQR.jpg" width="300" height="auto"></center>
         <div class="container">
                 <div class="text-ci">
                         <input type="radio" class="big"  name="mode" required>
                        <label for="">CASH ON DELIVERY</label><br>
                     </div>
                     <div class="PAYMENT-BUTTON">
-                      <a href="PlaceOrder.html">  <button class="PM-BUTTON"> PLACE ORDER</button></a>
+                      <a href="/PlaceOrder">  <button class="PM-BUTTON"> PLACE ORDER</button></a>
                     </div>
                 </div>
             </form>

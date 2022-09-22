@@ -1,31 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Checkout</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <%- include('./partials/head.ejs') %>
 <body>
     <!--- Header --->
-    <header>
-        <div class="navbar">
-                <p><a href = "index.html">
-                <img src="img/logonobg.png" width="100" height="auto">
-                </p></a>
-                    <ul>
-                        <a href="index.html"><li>Home</li></a>
-                        <a href="OurMenu.html"><li>Our Menu</li></a>
-                        <a href="Cart.html"><li>Cart</li></a>
-                        <a href="Account.html"><li>Account</li></a>
-                    </ul>
-            </div>
+    <div class="navbar">
+        <p><a href = "/">
+        <img src="SimplyTasty/img/logonobg.png" width="100" height="auto">
+        </p></a>
+            <ul>
+                <a href="/"><li>Home</li></a>
+                <a href="/OurMenu"><li>Our Menu</li></a>
+                <a href="/Cart"><li style="color: #CE4826;">Cart</li></a>
+                <a href="/Account"><li>Account</li></a>
+                </ul>
         </div>
+    </div>
         <div class="ourMenuSize">
             <h1 style="font-size:50px;">CHECKOUT</h1> 
     </div>
@@ -61,7 +50,7 @@
     </div>
  
      <div class="PAYMENT-BUTTON">
-        <a href="ContanctAndShippingDetails.html">  <button class="PM-BUTTON"> CONTACT AND SHIPPING DETAILS</button></a>
+        <a href="/ContanctAndShippingDetails">  <button class="PM-BUTTON"> CONTACT AND SHIPPING DETAILS</button></a>
       </div>
      
      

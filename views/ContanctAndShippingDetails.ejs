@@ -1,30 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>CONTACT&SHIPPING DETAILS</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    
-    
-</head>
+    <%- include('./partials/head.ejs') %>
 <body>
     <!--- Header --->
     <header>
         <div class="navbar">
-                <p><a href = "index.html">
-                <img src="img/logonobg.png" width="100" height="auto">
-                </p></a>
-                    <ul>
-                        <a href="index.html"><li>Home</li></a>
-                        <a href="OurMenu.html"><li>Our Menu</li></a>
-                        <a href="Cart.html"><li>Cart</li></a>
-                        <a href="Account.html"><li>Account</li></a>
+            <p><a href = "/">
+            <img src="SimplyTasty/img/logonobg.png" width="100" height="auto">
+            </p></a>
+                <ul>
+                    <a href="/"><li>Home</li></a>
+                    <a href="/OurMenu"><li>Our Menu</li></a>
+                    <a href="/Cart"><li style="color: #CE4826;">Cart</li></a>
+                    <a href="/Account"><li>Account</li></a>
                     </ul>
             </div>
         </div>
@@ -34,7 +22,7 @@
     </header>
 
     <!--Main Page Content-->
-    <form action="PaymentDetails.html">
+    <form action="/PaymentDetails">
         <div class="container">
             <div class="C-SInfo">
             <div class="text" >SHIPPING ADDRESS</div>
@@ -60,7 +48,7 @@
                     <input type="text" placeholder="CONTACT NUMBER" required maxlength="50">
                 </div>
               <div class="PAYMENT-BUTTON">
-                <a href="PaymentDetails.html"><button class="PM-BUTTON"> PAYMENT DETAILS</button></a>
+                <a href="/PaymentDetails"><button class="PM-BUTTON"> PAYMENT DETAILS</button></a>
             </div>
         </div>
             </div>

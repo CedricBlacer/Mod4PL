@@ -23,8 +23,8 @@ app.get("/Checkout", (req,res) => {
     res.render('Checkout', {title:'Finalize Your Orders'})
 })
 
-app.get("/ContactAndShippingDetails", (req,res) => {
-    res.render('ContactAndShippingDetails', {title:'Enter Contact'})
+app.get("/ContanctAndShippingDetails", (req,res) => {
+    res.render('ContanctAndShippingDetails', {title:'Enter Contact'})
 })
 
 app.get("/CreateAccount", (req,res) => {
