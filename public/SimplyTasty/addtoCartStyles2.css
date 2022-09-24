@@ -55,4 +55,7 @@ img.foodImg{
  
   
 }
-
+.collage{
+    display: flex;
+    margin-right: 110px;
+}
