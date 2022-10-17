@@ -1,12 +1,19 @@
-const express = require('express');
-const path =require ('path');
+const express = require('express')
+const mongoose = require('mongoose')
+const morgan = require('morgan')
+const bodyParser = require('body-parser')
 const app = express();
+const path =require ('path');
+
+
+//import auth routes
+const AuthRoute = require('./routes/auth')
 
 //register view engine EJS
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')))
 
-
+//ROUTES
 app.get("/", (req,res) => {
     res.render('index', {title:'Simply Tasty | Home'})
 })
@@ -75,12 +82,34 @@ app.get("/Snacks", (req,res) => {
     res.render('Snacks', {title:'Snacks'})
 })
 
+//ESTABLISHING MONGODB NODESERVER CONNECTION FOR LOGIN/REGISTER SYSTEM
+//where 'test' is the name of the db in mongoose
+mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true, useUnifiedTopology: true} )
+const db = mongoose.connection
 
-app.use((req, res) =>{
-    res.status(404).render('404', {title: 'Page not Found'})
+db.on('error', (err) => {
+    console.log(err)
 })
 
-app.listen(3000, function(err){
-    if(err) throw error
-    console.log("server running at port 3000...")
+db.once('open', () => {
+    console.log('Database Connection Established...')
 })
+
+app.use(morgan('dev'))
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
+// END OF ESTABLISHING MONGODB CONNECTION
+
+
+
+
+
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () =>{
+    console.log(`Server running at port ${PORT}`)
+})
+
+//USE API ROUTE
+app.use('/api', AuthRoute)

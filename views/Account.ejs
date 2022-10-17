@@ -19,15 +19,15 @@
     
     <!--Main Page Content-->   
     <div class="text-center mt-5">
-        <form style="max-width:480px;margin:auto">
-            <label for="emailAddress" class="sr-only"></label>
-            <input type="email" id="emailAddress" class="form-control" placeholder="Email Address" required autofocus>
+        <form style="max-width:480px;margin:auto" action="/api/login" method="POST">
+            <label for="email" class="sr-only"></label>
+            <input type="email" id="email" class="form-control" name="username" placeholder="Email" required autofocus>
 
             <label for="password" class="sr-only"></label>
-            <input type="password" id="password" class="form-control" placeholder="Password">
+            <input type="password" id="password" class="form-control" name="password" placeholder="Password">
 
             <div class="mt-4">
-                <button id="SignInBtn_Acc" class="btn btn-md btn-primary" type="button" onclick="validateSigninForm()"><b>SIGN IN</b></button>
+                <button id="SignInBtn_Acc" class="btn btn-md btn-primary" type="submit"><b>SIGN IN</b></button>
             </div>
 
         </form>
