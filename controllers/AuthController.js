@@ -3,7 +3,24 @@ const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+const listUsers = (req,res,next) =>{
+    //Mongoose query that returns all users from db
+    User.find()
+    .then(response => {
+        res.json({
+            response
+        })
+    })
+    .catch(error => {
+        res.json({
+            message: 'An error Occured!'
+        })
+    })
+}
+
+
 const register = (req,res,next) => {
+    //Mongoose query that adds a user to db
     bcrypt.hash(req.body.password, 10, function(err, hashedPass){
         if(err){
             res.json({
@@ -66,5 +83,5 @@ const login = (req,res,next) => {
 }
 
 module.exports = {
-    register, login
+    listUsers, register, login
 }
