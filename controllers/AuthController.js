@@ -38,7 +38,7 @@ const register = (req,res,next) => {
         })
         .catch(error => {
             res.json({
-                message: 'An error Occured!'
+                message: 'That Email is Already Taken... Please Try Another One.'
             })
         })
     })
