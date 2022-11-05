@@ -34,9 +34,7 @@ const register = (req,res,next) => {
         })
         user.save()
         .then(user => {
-            res.json({
-                message:'User Added Successfully'
-            })
+            res.redirect('/CreateAccount')
         })
         .catch(error => {
             res.json({
@@ -61,10 +59,7 @@ const login = (req,res,next) => {
                 }
                 if(result){
                     let token = jwt.sign({name: user.name}, 'verySecretValue', {expiresIn: '1h'})
-                    res.json({
-                        message: 'login Succesful',
-                        token
-                    })
+                    res.redirect('/')
 
                 }else{
                     res.json({
