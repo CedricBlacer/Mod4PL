@@ -30,7 +30,6 @@ const register = (req,res,next) => {
         let user = new User ({
             name: req.body.name,
             email: req.body.email,
-            phone: req.body.phone,
             password: hashedPass,
         })
         user.save()
@@ -51,7 +50,7 @@ const login = (req,res,next) => {
     var username = req.body.username
     var password = req.body.password
 
-    User.findOne({$or: [{email:username}, {phone:username}]})
+    User.findOne({$or: [{email:username}]})
     .then(user => {
         if(user){
             bcrypt.compare(password, user.password, function(err, result) {
