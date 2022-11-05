@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')))
 
 
-//ESTABLISHING MONGODB NODESERVER CONNECTION FOR LOGIN/REGISTER SYSTEM
+//ESTABLISHING MONGODB NODESERVER CONNECTION(CHECK .env)
 mongoose.connect(process.env.DATABASE_URI, {useNewUrlParser: true, useUnifiedTopology: true} )
 const db = mongoose.connection
 
