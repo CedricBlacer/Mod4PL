@@ -109,9 +109,7 @@ const changePassword2 = (req,res) => {
         
             Account.findOneAndUpdate(name, {$set: updatedData})
             .then(() => {
-                res.json({
-                    message: 'Account updated Successfully'
-                })
+                res.redirect('/ResetPassword')
             })
             .catch(error => {
                 res.json({
@@ -127,10 +125,7 @@ const changePassword2 = (req,res) => {
         res.json({
             message: 'Password dont match'
         })
-
     }
-    
-
 }
 
 
