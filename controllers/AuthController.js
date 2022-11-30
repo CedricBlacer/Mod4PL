@@ -76,6 +76,22 @@ const login = (req,res,next) => {
 
 }
 
+const changePassword = (req,res,next) => {
+    var username = req.body.username
+
+    Account.findOne({$or: [{email:username}]})
+    .then(account => {
+        if(account){
+            res.redirect('/EnterNewPassword')
+        }else{
+            res.json({
+                message: 'No account found'
+            })
+        }
+    })
+
+}
+
 module.exports = {
-    listAccounts, register, login
+    listAccounts, register, login, changePassword
 }
