@@ -1,11 +1,11 @@
-//IMPORT USER MODEL IN /models/user
-const User = require('../models/User')
+//IMPORT ACCOUNT MODEL IN /models/user
+const Account = require('../models/Account')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
-const listUsers = (req,res,next) =>{
-    //Mongoose query that returns all users from db
-    User.find()
+const listAccounts = (req,res,next) =>{
+    //Mongoose query that returns all accounts from db
+    Account.find()
     .then(response => {
         res.json({
             response
@@ -20,20 +20,20 @@ const listUsers = (req,res,next) =>{
 
 
 const register = (req,res,next) => {
-    //Mongoose query that adds a user to db
+    //Mongoose query that adds an account to db
     bcrypt.hash(req.body.password, 10, function(err, hashedPass){
         if(err){
             res.json({
                 error: err
             })
         }
-        let user = new User ({
+        let account = new Account ({
             name: req.body.name,
             email: req.body.email,
             password: hashedPass,
         })
-        user.save()
-        .then(user => {
+        account.save()
+        .then(account => {
             res.redirect('/CreateAccount')
         })
         .catch(error => {
@@ -48,17 +48,17 @@ const login = (req,res,next) => {
     var username = req.body.username
     var password = req.body.password
 
-    User.findOne({$or: [{email:username}]})
-    .then(user => {
-        if(user){
-            bcrypt.compare(password, user.password, function(err, result) {
+    Account.findOne({$or: [{email:username}]})
+    .then(account => {
+        if(account){
+            bcrypt.compare(password, account.password, function(err, result) {
                 if(err){
                     res.json({
                         error:err
                     })
                 }
                 if(result){
-                    let token = jwt.sign({name: user.name}, 'verySecretValue', {expiresIn: '1h'})
+                    let token = jwt.sign({name: account.name}, 'verySecretValue', {expiresIn: '1h'})
                     res.redirect('/')
 
                 }else{
@@ -69,7 +69,7 @@ const login = (req,res,next) => {
             })
         }else{
             res.json({
-                message: 'No user found'
+                message: 'No account found'
             })
         }
     })
@@ -77,5 +77,5 @@ const login = (req,res,next) => {
 }
 
 module.exports = {
-    listUsers, register, login
+    listAccounts, register, login
 }
