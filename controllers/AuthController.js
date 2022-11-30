@@ -77,14 +77,14 @@ const login = (req,res,next) => {
 }
 
 
-var username; //EMAIL VARIABLE FOR CHANGE PASSWORD METHODS
+var name; //EMAIL VARIABLE FOR CHANGE PASSWORD METHODS
 
 
 //FOR 'ForgotPassword.ejs' Page
 const changePassword1 = (req,res,next) => {
-    username = req.body.username
+    name = req.body.name
 
-    Account.findOne({$or: [{email:username}]})
+    Account.findOne({$or: [{email:name}]})
     .then(account => {
         if(account){
             res.redirect('/EnterNewPassword')// REDIRECT TO "ENTER NEW PASSWORD" PAGE
@@ -95,14 +95,42 @@ const changePassword1 = (req,res,next) => {
             })
         }
     })
-
-
-
 }
  
 //FOR 'EnterNewPassword.ejs' Page
 const changePassword2 = (req,res) => {
-    console.log(username)
+    console.log(name)
+
+    if(req.body.newPassword == req.body.cnewPassword){
+        bcrypt.hash(req.body.newPassword, 10, function(err, hashedPass){
+            let updatedData = {
+                password: hashedPass
+            }
+        
+            Account.findOneAndUpdate(name, {$set: updatedData})
+            .then(() => {
+                res.json({
+                    message: 'Account updated Successfully'
+                })
+            })
+            .catch(error => {
+                res.json({
+                    //message: 'An error occured!'
+                    error:err
+                })
+                console.log(name)
+            })
+    
+        })
+
+    }else{
+        res.json({
+            message: 'Password dont match'
+        })
+
+    }
+    
+
 }
 
 
