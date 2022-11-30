@@ -76,22 +76,36 @@ const login = (req,res,next) => {
 
 }
 
-const changePassword = (req,res,next) => {
-    var username = req.body.username
+
+var username; //EMAIL VARIABLE FOR CHANGE PASSWORD METHODS
+
+
+//FOR 'ForgotPassword.ejs' Page
+const changePassword1 = (req,res,next) => {
+    username = req.body.username
 
     Account.findOne({$or: [{email:username}]})
     .then(account => {
         if(account){
-            res.redirect('/EnterNewPassword')
+            res.redirect('/EnterNewPassword')// REDIRECT TO "ENTER NEW PASSWORD" PAGE
+            return
         }else{
             res.json({
-                message: 'No account found'
+                message: 'No account found associated with that email'
             })
         }
     })
 
+
+
+}
+ 
+//FOR 'EnterNewPassword.ejs' Page
+const changePassword2 = (req,res) => {
+    console.log(username)
 }
 
+
 module.exports = {
-    listAccounts, register, login, changePassword
+    listAccounts, register, login, changePassword1, changePassword2
 }

@@ -7,6 +7,11 @@ const AuthController = require('../controllers/AuthController')
 router.get('/accounts', AuthController.listAccounts)
 router.post('/register', AuthController.register)
 router.post('/login', AuthController.login)
-router.post('/changePassword', AuthController.changePassword)
+
+//ISSUE NIYA UNG INPUTS DUN SA 'ENTERNEWPASSWORD' PAGE 
+//NAPAPASA NIYA DUN SA 'changePassword1' function
+router.post('/changePassword', AuthController.changePassword1)
+router.post('/changePassword2', AuthController.changePassword2)
+
 
 module.exports = router
