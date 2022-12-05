@@ -129,6 +129,7 @@ const changePassword2 = (req,res) => {
 }
 
 
+
 module.exports = {
     listAccounts, register, login, changePassword1, changePassword2
 }
