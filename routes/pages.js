@@ -75,6 +75,10 @@ router.get("/Snacks", (req,res) => {
     res.render('Snacks', {title:'Snacks'})
 })
 
+router.get("/NoAccount", (req,res) => {
+    res.render('NoAccount', {title:"You're not Signed In"})
+})
+
 router.use((req, res) =>{
     res.status(404).render('404', {title: 'Page not Found'})
 })

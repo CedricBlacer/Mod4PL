@@ -193,14 +193,10 @@ const authenticate = (req, res, next)=>{
         next()
 
     }catch(error){
-        res.json({
-            message: 'authenticate error'
-        })
+        res.redirect('/NoAccount')
 
     }
 }
-
-
 
 
 module.exports = {
