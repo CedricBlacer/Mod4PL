@@ -160,5 +160,5 @@ const CollectShippingDetails= (req,res,next) => {
 
 
 module.exports = {
-    listAccounts, register, login, changePassword1, changePassword2, ContactAndShippingDetails
+    listAccounts, register, login, changePassword1, changePassword2, CollectShippingDetails
 }
