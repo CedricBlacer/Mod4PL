@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 const ContactAndShippingDetails = require('../models/ContactAndShippingDetails')
 const PaymentDetails = require ('../models/PaymentDetails')
 
+//DISPLAY ALL USER ACCOUNTS
 const listAccounts = (req,res,next) =>{
     //Mongoose query that returns all accounts from db
     Account.find()
@@ -20,7 +21,7 @@ const listAccounts = (req,res,next) =>{
     })
 }
 
-
+//REGISTER AN ACCOUNT
 const register = (req,res,next) => {
     //Mongoose query that adds an account to db
     bcrypt.hash(req.body.password, 10, function(err, hashedPass){
@@ -49,6 +50,7 @@ const register = (req,res,next) => {
 var token; //VARIABLE FOR login and authenticate functions
 var username;
 
+//LOGIN AN ACCOUNT
 const login = (req,res,next) => {
     username = req.body.username
     var password = req.body.password
@@ -81,6 +83,7 @@ const login = (req,res,next) => {
 
 }
 
+//AUTHENTICATE LOGIN PAGE
 const authenticateLogin = (req, res, next)=>{
     try{
         token
@@ -153,7 +156,7 @@ const changePassword2 = (req,res) => {
 }
 
 
-
+//FOR 'ContactAndShippingDetails.ejs' Page
 const CollectShippingDetails= (req,res,next) => {
     bcrypt.hash(req.body.Address, 10, function(err, hashedPass){
         if(err){
@@ -181,32 +184,27 @@ const CollectShippingDetails= (req,res,next) => {
         })
     })
 }
-const CollectGcashInfo= (req,res,next) => {
-    bcrypt.hash(req.body.Address, 10, function(err, hashedPass){
-        if(err){
-            res.json({
-                error: err
-            })
-        }
-        let collectGcashInfo = new PaymentDetails ({
-            GcashName: req.body.GcashName,
-            GcashNumber: hashedPass,
-          
-        })
-        collectGcashInfo.save()
-        .then(collectGcashInfo => {
-            res.redirect('/PlaceOrder')
-        })
-        .catch(error => {
-            res.json({
-                message: 'Please Try Again.'
-            })
+
+//FOR PAYMENT DETAILS
+const CollectGcashInfo1= (req,res,next) => {
+    let collectGcashInfo = new PaymentDetails ({
+        GcashName: req.body.GcashName,
+        GcashNumber: req.body.GcashNumber
+    })
     
+    collectGcashInfo.save()
+    .then(collectGcashInfo => {
+        res.redirect('/PlaceOrder')
+    })
+    .catch(error => {
+        res.json({
+            message: 'Please Try Again.'
         })
+
     })
 }
 
-//MIDDLEWARE TO AUTHENTICATE ROUTES
+//MIDDLEWARE TO AUTHENTICATE ROUTES USING LOGIN
 const authenticate = (req, res, next)=>{
     try{
         token
@@ -225,6 +223,6 @@ const authenticate = (req, res, next)=>{
 
 
 module.exports = {
-    listAccounts, register, login, changePassword1, changePassword2, CollectShippingDetails, CollectGcashInfo, authenticate, authenticateLogin, signOut
+    listAccounts, register, login, changePassword1, changePassword2, CollectShippingDetails, CollectGcashInfo1, authenticate, authenticateLogin, signOut
 
 }
