@@ -4,6 +4,7 @@
 <body>
     <!--- Header --->
     <header>
+        <style>a{color:aliceblue}</style> 
         <div class="navbar">
             <p><a href = "/">
             <img src="SimplyTasty/img/logonobg.png" width="100" height="auto">
@@ -31,54 +32,22 @@
         <div class="categories"><a href="/Desserts"><p style="text-align:center">Desserts</a></div>
    </div>
 
-    <div class="wrapper-grid-snack">
-    <div class="container" id="item1">
-        <div class ="card">
-            <img class = "foodImg" src="SimplyTasty/img/dessert4.jpg" id="foodImg" >
-            <div class ="foodTitle">Chocolate Brownies</div>  
-            <div class ="foodPrice"> ₱45 </div>  
-            <div ><button>Add to Cart</button></div>        
-        </div> 
-        
-            
+   <div class="row">
+    <%if(desserts.length>0){ %>
+        <% desserts.forEach(dessert =>{%>
+    <div class="col-sm-6 col-md-4">
+        <div class="container1" id="item1">
+            <div class ="card">
+                <img class =foodImg src="<%= dessert.imagePath %>" alt="..." class="img-responsive">
+                <div class ="foodTitle"><%= dessert.dessert_name %></div>  
+                <div class ="foodPrice">₱<%= dessert.dessert_price %></div>  
+                <div class="addtocartdiv" ><a href="/Cart" role="button">Add to Cart</a></div>           
+            </div> 
+        </div>
     </div>
-
-    <div class="container" id="item2">
-        <div class ="card">
-            <img class = "foodImg" src="SimplyTasty/img/dessert2.png" id="foodImg">
-            <div class ="foodTitle"> Ice Cream</div>   
-            <div class ="foodPrice"> ₱50 </div>  
-            <div ><button>Add to Cart</button></div>      
-        </div> 
-        
-            
-    </div>
-
-    <div class="container" id="item3">
-        <div class ="card">
-            <img  class = "foodImg"src="SimplyTasty/img/dessert1.jpg" id="foodImg">
-            <div class ="foodTitle">Chocolate Cake</div> 
-            <div class ="foodPrice"> ₱75 </div>  
-            <div ><button>Add to Cart</button></div>        
-        </div> 
-       
-            
-    </div>
-    
-    <div class="container" id="item3">
-        <div class ="card">
-            <img  class = "foodImg"src="SimplyTasty/img/dessert3.jpg" id="foodImg">
-            <div class ="foodTitle"> Leche Flan </div>  
-            <div class ="foodPrice"> ₱75 </div>  
-            <div ><button>Add to Cart</button></div>        
-        </div> 
-       
-            
-    </div>
-
-    
+    <% })%>
+    <% } %>
 </div>
-
     
 
     

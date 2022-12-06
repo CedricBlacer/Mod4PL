@@ -2,22 +2,22 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const productSchema = new Schema({
+const dessertSchema = new Schema({
     imagePath:{type:String, required: true
     },
-    prod_name: {
+    dessert_name: {
         type: String
     },
-    prod_desc: { 
+    dessert_desc: { 
         type: String
     },
-    prod_price: {
+    dessert_price: {
         type: Number
     }
 },{timestamps: true})
 
-const Product = mongoose.model('Product', productSchema);
-module.exports = Product
+const Dessert = mongoose.model('Dessert', dessertSchema);
+module.exports = Dessert
 
 
 

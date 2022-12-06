@@ -4,6 +4,7 @@
 <body>
     <!--- Header --->
     <header>
+        <style>a{color:aliceblue}</style> 
         <div class="navbar">
             <p><a href = "/">
             <img src="SimplyTasty/img/logonobg.png" width="100" height="auto">
@@ -45,54 +46,29 @@
         <div class="categories"><a href="/Snacks"><p style="text-align:center">Snacks</a></div>
         <div class="categories"><a href="/Desserts"><p style="text-align:center">Desserts</a></div>
    </div>
-
-    <div class="wrapper-grid-snack">
-    <div class="container" id="item1">
-        <div class ="card">
-            <img class = "foodImg" src="SimplyTasty/img/snack1.jpg" id="foodImg" >
-            <div class ="foodTitle">Chocolate Chip Cookies</div>  
-            <div class ="foodPrice"> ₱50 </div>  
-            <div ><button>Add to Cart</button></div>        
-        </div> 
+  
+    <div class="row">
+        <%if(snacks.length>0){ %>
+            <% snacks.forEach(snack =>{%>
+        <div class="col-sm-6 col-md-4">
+            <div class="container1" id="item1">
+                <div class ="card">
+                    <img class =foodImg src="<%= snack.imagePath %>" alt="..." class="img-responsive">
+                    <div class ="foodTitle"><%= snack.snack_name %></div>  
+                    <div class ="foodPrice">₱<%= snack.snack_price %></div>  
+                    <div class="addtocartdiv" ><a href="/Cart" role="button">Add to Cart</a></div>            
+                </div> 
+            </div>
+        </div>
+        <% })%>
+        <% } %>
+    </div>
         
-            
-    </div>
 
-    <div class="container" id="item2">
-        <div class ="card">
-            <img class = "foodImg" src="SimplyTasty/img/snack2.jpg" id="foodImg">
-            <div class ="foodTitle"> Pizza</div>   
-            <div class ="foodPrice"> ₱400 </div>  
-            <div ><button>Add to Cart</button></div>      
-        </div> 
-        
-            
-    </div>
-
-    <div class="container" id="item3">
-        <div class ="card">
-            <img  class = "foodImg"src="SimplyTasty/img/snack3.jpg" id="foodImg">
-            <div class ="foodTitle"> French Fries</div> 
-            <div class ="foodPrice"> ₱50 </div>  
-            <div ><button>Add to Cart</button></div>        
-        </div> 
-       
-            
-    </div>
-    
-    <div class="container" id="item3">
-        <div class ="card">
-            <img  class = "foodImg"src="SimplyTasty/img/snack4.jpg" id="foodImg">
-            <div class ="foodTitle"> Nachos </div>  
-            <div class ="foodPrice"> ₱50 </div>  
-            <div ><button>Add to Cart</button></div>        
-        </div> 
-       
-            
-    </div>
+   
 
     
-</div>
+
 
     
 

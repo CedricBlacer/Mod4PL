@@ -1,5 +1,5 @@
 
-.container{
+.container1{
     margin: 100px;
     width: max-content;
     text-align:center;
@@ -58,4 +58,34 @@ img.foodImg{
 .collage{
     display: flex;
     margin-right: 110px;
+}
+.thumbnail img {
+    max-height: 150px;
+}
+
+.thumbnail .description {
+    color: #7f7f7f;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 16px;
+}
+.addtocartdiv{
+    display: block;
+    background-color: #CE4826;
+    border: 2px solid #CE4826;
+    background-color: #CE4826;
+    font-weight: bold;
+    padding: 5px 10px;
+    
+    width: 100%;
+    display:center;
+}
+a:link  {
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: black;
 }

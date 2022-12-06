@@ -1,13 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
-   
-   
 <body>
     <%- include('./partials/head.ejs') %>
 
     <!--- Header --->
     <header>
+        <style>a{color:aliceblue}</style> 
         <div class="navbar">
                 
             <div class="navbar">
@@ -53,93 +51,26 @@
         <div class="categories"><a href="/Snacks"><p style="text-align:center">Snacks</a></div>
         <div class="categories"><a href="/Desserts"><p style="text-align:center">Desserts</a></div>
    </div>
-   <!--
-   <%if(products.length>0){ %>
-    <% products.forEach(product =>{%>
-        <div class="container">    
-        <div class="row">
+   
+    <div class="row">
+        <%if(meals.length>0){ %>
+            <% meals.forEach(meal =>{%>
         <div class="col-sm-6 col-md-4">
             <div class="container1" id="item1">
                 <div class ="card">
-                    <img class =foodImg src="<%= product.imagePath %>" alt="..." class="img-responsive">
-                    <div class ="foodTitle"><%= product.prod_name %></div>  
-                    <div class ="foodPrice">₱<%= product.prod_price %></div>  
-                    <div ><button class="addToCart">Add to Cart</button></div>        
+                    <img class =foodImg src="<%= meal.imagePath %>" alt="..." class="img-responsive">
+                    <div class ="foodTitle"><%= meal.meal_name %></div>  
+                    <div class ="foodPrice">₱<%= meal.meal_price %></div>  
+                    <div class="addtocartdiv" ><a href="/Cart" role="button">Add to Cart</a></div>        
                 </div> 
             </div>
         </div>
         <% })%>
         <% } %>
-        --> 
-
-    <div class="wrapper-grid">
-    <div class="container" id="item1">
-        <div class ="card">
-            <img class = "foodImg" src="SimplyTasty/img/meal1.jpg" id="foodImg" >
-            <div class ="foodTitle">Pork Adobo</div>  
-            <div class ="foodPrice"> ₱ 75 </div>  
-            <div ><button class="addToCart">Add to Cart</button></div>        
-        </div> 
+    </div>
         
-            
-    </div>
 
-    <div class="container" id="item2">
-        <div class ="card">
-            <img class = "foodImg" src="SimplyTasty/img/meal2.jpg" id="foodImg">
-            <div class ="foodTitle"> Pork Afritada</div>   
-            <div class ="foodPrice"> ₱ 85 </div>  
-            <div ><button class="addToCart">Add to Cart</button></div>      
-        </div> 
-        
-            
-    </div>
 
-    <div class="container" id="item3">
-        <div class ="card">
-            <img  class = "foodImg"src="SimplyTasty/img/meal3.jpg" id="foodImg">
-            <div class ="foodTitle"> Pork Sisig</div> 
-            <div class ="foodPrice"> ₱ 105 </div>  
-            <div ><button class="addToCart">Add to Cart</button></div>        
-        </div> 
-       
-            
-    </div>
-    
-    <div class="container" id="item3">
-        <div class ="card">
-            <img  class = "foodImg"src="SimplyTasty/img/meal4.jpg" id="foodImg">
-            <div class ="foodTitle"> Chicken Inasal </div>  
-            <div class ="foodPrice"> ₱ 105 </div>  
-            <div ><button class="addToCart">Add to Cart</button></div>        
-        </div> 
-       
-            
-    </div>
-
-    <div class="container" id="item3">
-        <div class ="card">
-            <img  class = "foodImg"src="SimplyTasty/img/meal5.jpg" id="foodImg">
-            <div class ="foodTitle"> Nilagang Baka </div>  
-            <div class ="foodPrice"> ₱ 110 </div>  
-            <div ><button class="addToCart">Add to Cart</button></div>        
-        </div> 
-       
-            
-    </div>
-
-    <div class="container" id="item3">
-        <div class ="card">
-            <img  class = "foodImg"src="SimplyTasty/img/meal6.jpg" id="foodImg">
-            <div class ="foodTitle"> Sinigang na Salmon </div>  
-            <div class ="foodPrice"> ₱ 110 </div>  
-            <div ><button class="addToCart">Add to Cart</button></div>        
-        </div> 
-
-    <!--test-->
-    
-
-</div>
 
     
 
