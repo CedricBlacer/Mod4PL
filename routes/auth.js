@@ -9,6 +9,6 @@ router.post('/register', AuthController.register)
 router.post('/login', AuthController.login)
 router.post('/changePassword', AuthController.changePassword1)
 router.post('/changePassword2', AuthController.changePassword2)
-
+router.post('/ContactAndShippingDetails', AuthController.ContactAndShippingDetails)
 
 module.exports = router

@@ -2,6 +2,7 @@
 const Account = require('../models/Account')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const ContactAndShippingDetails = require('../models/ContactAndShippingDetails')
 
 const listAccounts = (req,res,next) =>{
     //Mongoose query that returns all accounts from db
@@ -127,9 +128,37 @@ const changePassword2 = (req,res) => {
         })
     }
 }
+const CollectShippingDetails= (req,res,next) => {
+    bcrypt.hash(req.body.Address, 10, function(err, hashedPass){
+        if(err){
+            res.json({
+                error: err
+            })
+        }
+        let contactAndShippingDetails = new CollectShippingDetails ({
+            FirstName: req.body.FirstName,
+            LastName: req.body.LastName,
+            Address: hashedPass,
+            email: req.body.Email,
+            ContactNumber: req.body.ContactNumber,
+           
+          
+        })
+        contactAndShippingDetails.save()
+        .then(ContactAndShippingDetails => {
+            res.redirect('/PaymentDetails')
+        })
+        .catch(error => {
+            res.json({
+                message: 'Please Try Again.'
+            })
+        })
+    })
+}
+
 
 
 
 module.exports = {
-    listAccounts, register, login, changePassword1, changePassword2
+    listAccounts, register, login, changePassword1, changePassword2, ContactAndShippingDetails
 }
