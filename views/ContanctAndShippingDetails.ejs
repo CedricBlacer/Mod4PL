@@ -22,32 +22,32 @@
     </header>
 
     <!--Main Page Content-->
-    <form action="/CollectShippingDetails" method="POST">
+    <form action="/api/CollectShippingDetails" method="POST">
             <div class="C-SInfo">
             <div class="text" >SHIPPING ADDRESS</div>
             <div class="text-input">
-                <input type="text" placeholder="FIRST NAME" required maxlength="50">
+                <input type="text" placeholder="FIRST NAME" name="FirstName" required maxlength="50">
             </div>
         </br>
             <div class="text-input">
-                <input type="text" placeholder="LAST NAME" required maxlength="50">
+                <input type="text" placeholder="LAST NAME" name="LastName" required maxlength="50">
             </div>
         </br>
             <div class="text-input-addr">
-                <input type="text" placeholder="ADDRESS"required maxlength="50">
+                <input type="text" placeholder="ADDRESS" name="Address" required maxlength="50">
             </div>
         </div>
         <div class="container-ci">
             <div class="text-ci" >CONTACT INFORMATION</div>
                 <div class="text-input">
-                 <input type="text" placeholder="EMAIL" required maxlength="50">
+                 <input type="text" placeholder="EMAIL" name="Email" required maxlength="50">
                 </div>
         </br>
                 <div class="text-input">
-                    <input type="text" placeholder="CONTACT NUMBER" required maxlength="50">
+                    <input type="text" placeholder="CONTACT NUMBER" name="ContactNumber" required maxlength="50">
                 </div>
               <div class="PAYMENT-BUTTON">
-                <a href="/PaymentDetails"><button class="PM-BUTTON"> PAYMENT DETAILS</button></a>
+                <button class="PM-BUTTON" type="submit"> PAYMENT DETAILS</button>
             </div>
         </div>
             </div>

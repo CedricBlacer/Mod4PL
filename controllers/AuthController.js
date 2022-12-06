@@ -135,17 +135,17 @@ const CollectShippingDetails= (req,res,next) => {
                 error: err
             })
         }
-        let contactAndShippingDetails = new CollectShippingDetails ({
+        let collectContactAndShippingDetails = new ContactAndShippingDetails ({
             FirstName: req.body.FirstName,
             LastName: req.body.LastName,
             Address: hashedPass,
-            email: req.body.Email,
+            Email: req.body.Email,
             ContactNumber: req.body.ContactNumber,
            
           
         })
-        contactAndShippingDetails.save()
-        .then(ContactAndShippingDetails => {
+        collectContactAndShippingDetails.save()
+        .then(collectContactAndShippingDetails => {
             res.redirect('/PaymentDetails')
         })
         .catch(error => {
