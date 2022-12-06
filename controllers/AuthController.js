@@ -128,13 +128,11 @@ const changePassword1 = (req,res,next) => {
 const changePassword2 = (req,res) => {
     console.log(name)
 
+
     if(req.body.newPassword == req.body.cnewPassword){
         bcrypt.hash(req.body.newPassword, 10, function(err, hashedPass){
-            let updatedData = {
-                password: hashedPass
-            }
-        
-            Account.findOneAndUpdate(name, {$set: updatedData})
+            
+            Account.findOneAndUpdate({email: name}, {password: hashedPass})
             .then(() => {
                 res.redirect('/ResetPassword')
             })
