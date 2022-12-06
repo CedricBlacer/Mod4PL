@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const Product = require('../models/product');
 
 //ROUTES
 router.get("/", (req,res) => {
@@ -39,9 +39,12 @@ router.get("/ForgotPassword", (req,res) => {
     res.render('ForgotPassword', {title:'Forgot Password'})
 })
 
-router.get("/Meals", (req,res) => {
-    res.render('Meals', {title:'Main Dishes'})
-})
+router.get('/Meals', function (req, res, next){
+    var products = Product.find(function(err, docs){
+        res.render('Meals', {title:'Meals', products: docs})
+    })
+    
+});
 
 router.get("/OurMenu", (req,res) => {
     res.render('OurMenu', {title:'Choose Your Food Category'})

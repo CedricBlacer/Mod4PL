@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
-<html lang="en">
-    <%- include('./partials/head.ejs') %>
+<html lang="en"> 
 <body>
+    <%- include('./partials/head.ejs') %>
+
     <!--- Header --->
     <header>
         <div class="navbar">
@@ -42,11 +44,30 @@
         </div>
     </div>
 --> 
+
+   
    <div class="wrapper-grid">
        <div class="categories"><a href="/Meals"><p style="text-align:center">Meals</a></div>
         <div class="categories"><a href="/Snacks"><p style="text-align:center">Snacks</a></div>
         <div class="categories"><a href="/Desserts"><p style="text-align:center">Desserts</a></div>
    </div>
+   <%if(products.length>0){ %>
+    <% products.forEach(product =>{%>
+        <div class="container">    
+        <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="container1" id="item1">
+                <div class ="card">
+                    <img class =foodImg src="<%= product.imagePath %>" alt="..." class="img-responsive">
+                    <div class ="foodTitle"><%= product.prod_name %></div>  
+                    <div class ="foodPrice">₱<%= product.prod_price %></div>  
+                    <div ><button class="addToCart">Add to Cart</button></div>        
+                </div> 
+            </div>
+        </div>
+        <% })%>
+        <% } %>
+
 
     <div class="wrapper-grid">
     <div class="container" id="item1">
