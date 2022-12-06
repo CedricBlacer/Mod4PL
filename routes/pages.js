@@ -8,7 +8,7 @@ router.get("/", (req,res) => {
     res.render('index', {title:'Simply Tasty | Home'})
 })
 
-router.get("/Account", (req,res) => {
+router.get("/Account", AuthController.authenticateLogin, (req,res) => {
     res.render('Account', {title:'Account'})
 })
 

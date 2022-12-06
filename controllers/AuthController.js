@@ -47,9 +47,10 @@ const register = (req,res,next) => {
 }
 
 var token; //VARIABLE FOR login and authenticate functions
+var username;
 
 const login = (req,res,next) => {
-    var username = req.body.username
+    username = req.body.username
     var password = req.body.password
 
     Account.findOne({$or: [{email:username}]})
@@ -62,7 +63,7 @@ const login = (req,res,next) => {
                     })
                 }
                 if(result){
-                    token = jwt.sign({name: account.name}, 'verySecretValue', {expiresIn: '1h'})
+                    token = jwt.sign({name: account.name}, 'verySecretValue', {expiresIn: '20m'})
                     res.redirect('/')
 
                 }else{
@@ -78,6 +79,25 @@ const login = (req,res,next) => {
         }
     })
 
+}
+
+const authenticateLogin = (req, res, next)=>{
+    try{
+        token
+        const decode = jwt.verify(token, 'verySecretValue')
+
+        req.user = decode
+
+        res.render('AccountSignedIn', {User: username})
+
+    }catch(error){
+        next()
+    }
+}
+
+const signOut = (req, res)=>{
+    token = ' '
+    res.redirect('/Account')
 }
 
 
@@ -131,6 +151,9 @@ const changePassword2 = (req,res) => {
         })
     }
 }
+
+
+
 const CollectShippingDetails= (req,res,next) => {
     bcrypt.hash(req.body.Address, 10, function(err, hashedPass){
         if(err){
@@ -199,7 +222,9 @@ const authenticate = (req, res, next)=>{
 }
 
 
+
+
 module.exports = {
-    listAccounts, register, login, changePassword1, changePassword2, CollectShippingDetails, CollectGcashInfo, authenticate
+    listAccounts, register, login, changePassword1, changePassword2, CollectShippingDetails, CollectGcashInfo, authenticate, authenticateLogin, signOut
 
 }
