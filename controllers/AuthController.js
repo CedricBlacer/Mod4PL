@@ -3,6 +3,7 @@ const Account = require('../models/Account')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const ContactAndShippingDetails = require('../models/ContactAndShippingDetails')
+const PaymentDetails = require ('../models/PaymentDetails')
 
 const listAccounts = (req,res,next) =>{
     //Mongoose query that returns all accounts from db
@@ -155,10 +156,35 @@ const CollectShippingDetails= (req,res,next) => {
         })
     })
 }
+const CollectGcashInfo= (req,res,next) => {
+    bcrypt.hash(req.body.Address, 10, function(err, hashedPass){
+        if(err){
+            res.json({
+                error: err
+            })
+        }
+        let collectGcashInfo = new PaymentDetails ({
+            GcashName: req.body.GcashName,
+            GcashNumber: hashedPass,
+          
+        })
+        collectGcashInfo.save()
+        .then(collectGcashInfo => {
+            res.redirect('/PlaceOrder')
+        })
+        .catch(error => {
+            res.json({
+                message: 'Please Try Again.'
+            })
+    
+        })
+    })
+}
 
 
 
 
 module.exports = {
-    listAccounts, register, login, changePassword1, changePassword2, CollectShippingDetails
+    listAccounts, register, login, changePassword1, changePassword2, CollectShippingDetails, CollectGcashInfo
+
 }

@@ -10,5 +10,5 @@ router.post('/login', AuthController.login)
 router.post('/changePassword', AuthController.changePassword1)
 router.post('/changePassword2', AuthController.changePassword2)
 router.post('/CollectShippingDetails', AuthController.CollectShippingDetails)
-
+router.post('/CollectGcashInfo', AuthController.CollectGcashInfo)
 module.exports = router

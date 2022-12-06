@@ -23,7 +23,7 @@
     </header>
 
     <!--Main Page Content-->
-    <form action="/PlaceOrder">
+    <form action="/api/CollectGcashInfo" method="POST">
         <div class="text-ci">
                 <input type="radio" class="big" name="mode" required>
                <label for="">GCASH INFO</label><br>
@@ -42,7 +42,7 @@
                        <label for="">CASH ON DELIVERY</label><br>
                     </div>
                     <div class="PAYMENT-BUTTON">
-                      <a href="/PlaceOrder">  <button class="PM-BUTTON"> PLACE ORDER</button></a>
+                        <button class="PM-BUTTON" type="submit"> Place Order</button>
                     </div>
                 </div>
             </form>
