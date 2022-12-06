@@ -46,6 +46,8 @@ const register = (req,res,next) => {
     })
 }
 
+var token; //VARIABLE FOR login and authenticate functions
+
 const login = (req,res,next) => {
     var username = req.body.username
     var password = req.body.password
@@ -60,7 +62,7 @@ const login = (req,res,next) => {
                     })
                 }
                 if(result){
-                    let token = jwt.sign({name: account.name}, 'verySecretValue', {expiresIn: '1h'})
+                    token = jwt.sign({name: account.name}, 'verySecretValue', {expiresIn: '1h'})
                     res.redirect('/')
 
                 }else{
@@ -181,10 +183,27 @@ const CollectGcashInfo= (req,res,next) => {
     })
 }
 
+//MIDDLEWARE TO AUTHENTICATE ROUTES
+const authenticate = (req, res, next)=>{
+    try{
+        token
+        const decode = jwt.verify(token, 'verySecretValue')
+
+        req.user = decode
+        next()
+
+    }catch(error){
+        res.json({
+            message: 'authenticate error'
+        })
+
+    }
+}
+
 
 
 
 module.exports = {
-    listAccounts, register, login, changePassword1, changePassword2, CollectShippingDetails, CollectGcashInfo
+    listAccounts, register, login, changePassword1, changePassword2, CollectShippingDetails, CollectGcashInfo, authenticate
 
 }

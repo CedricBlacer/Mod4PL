@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Product = require('../models/product');
+const AuthController = require('../controllers/AuthController')
 
 //ROUTES
 router.get("/", (req,res) => {
