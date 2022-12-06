@@ -1,4 +1,4 @@
-//IMPORT ACCOUNT MODEL IN /models/user
+//IMPORT ACCOUNT MODEL IN /models/user TEST
 const Account = require('../models/Account')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
