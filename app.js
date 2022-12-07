@@ -34,13 +34,13 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 // END OF ESTABLISHING MONGODB CONNECTION
 
-
+/* FOR TESTING PURPOSES (REMOVE COMMENTS IF NEEDED)
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () =>{
     console.log(`Server running at port ${PORT}`)
 })
-
+*/
 
 app.use('/api', AuthRoute) //USE API ROUTE
 app.use('/', pagesRoute) //USE PAGES ROUTE
