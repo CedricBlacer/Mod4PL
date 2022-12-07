@@ -18,7 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 
 //ESTABLISHING MONGODB NODESERVER CONNECTION(CHECK .env)
-//DATABASE_URI =  mongodb+srv://serverhost2:<password>@cluster0.rngoxff.mongodb.net/SimplyTasty?retryWrites=true&w=majority
 mongoose.connect(process.env.DATABASE_URI, {useNewUrlParser: true, useUnifiedTopology: true} )
 const db = mongoose.connection
 
