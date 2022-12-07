@@ -119,6 +119,22 @@ router.get("/NoAccount", (req,res) => {
     res.render('NoAccount', {title:"You're not Signed In"})
 })
 
+router.get("/AccountNotExist", (req,res) => {
+    res.render('AccountNotExist', {title:"Account Not Found"})
+})
+
+router.get("/WrongLogin", (req,res) => {
+    res.render('WrongLogin', {title:"Wrong Login Credentials"})
+})
+
+router.get("/AccountExist", (req,res) => {
+    res.render('AccountExist', {title:"Account Already Exists"})
+})
+
+router.get("/PasswordDoesntMatch", (req,res) => {
+    res.render('PasswordDoesntMatch', {title:"Wrong Passwords"})
+})
+
 router.use((req, res) =>{
     res.status(404).render('404', {title: 'Page not Found'})
 })

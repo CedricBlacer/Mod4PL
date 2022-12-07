@@ -40,9 +40,7 @@ const register = (req,res,next) => {
             res.redirect('/CreateAccount')
         })
         .catch(error => {
-            res.json({
-                message: 'That Email is Already Taken... Please Try Another One.'
-            })
+            res.redirect('/AccountExist')
         })
     })
 }
@@ -69,15 +67,11 @@ const login = (req,res,next) => {
                     res.redirect('/')
 
                 }else{
-                    res.json({
-                        message: 'Password Doesnt Match!'
-                    })
+                    res.redirect('/WrongLogin')
                 }
             })
         }else{
-            res.json({
-                message: 'No account found'
-            })
+            res.redirect('/AccountNotExist')
         }
     })
 
@@ -117,9 +111,7 @@ const changePassword1 = (req,res,next) => {
             res.redirect('/EnterNewPassword')// REDIRECT TO "ENTER NEW PASSWORD" PAGE
             return
         }else{
-            res.json({
-                message: 'No account found associated with that email'
-            })
+            res.redirect('/AccountNotExist')
         }
     })
 }
@@ -147,9 +139,7 @@ const changePassword2 = (req,res) => {
         })
 
     }else{
-        res.json({
-            message: 'Password dont match'
-        })
+        res.redirect('/PasswordDoesntMatch')
     }
 }
 
