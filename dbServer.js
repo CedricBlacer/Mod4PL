@@ -1,3 +1,5 @@
+//----------------------MYSQL CODES----------------------------------//
+//DISCONTINUED AFTER MIGRATING TO MONGODB NOSQL
 const mysql = require('mysql2')
 
 
