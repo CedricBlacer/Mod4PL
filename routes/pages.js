@@ -5,6 +5,7 @@ const Meal = require('../models/meal');
 const Snack = require('../models/snack');
 const Cart = require('../models/cart');
 const Dessert = require('../models/dessert');
+
 //ROUTES
 router.get("/", (req,res) => {
     res.render('index', {title:'Simply Tasty | Home'})
@@ -14,15 +15,15 @@ router.get("/Account", AuthController.authenticateLogin, (req,res) => {
     res.render('Account', {title:'Account'})
 })
 
-router.get("/Cart", (req,res) => {
+router.get("/Cart", AuthController.authenticate, (req,res) => {
     res.render('Cart', {title:'Your Cart'})
 })
 
-router.get("/Checkout", (req,res) => {
+router.get("/Checkout", AuthController.authenticate, (req,res) => {
     res.render('Checkout', {title:'Finalize Your Orders'})
 })
 
-router.get("/ContanctAndShippingDetails", (req,res) => {
+router.get("/ContanctAndShippingDetails", AuthController.authenticate, (req,res) => {
     res.render('ContanctAndShippingDetails', {title:'Enter Contact'})
 })
 
@@ -30,7 +31,7 @@ router.get("/CreateAccount", (req,res) => {
     res.render('CreateAccount', {title:'Register Your Account'})
 })
 
-router.get('/Desserts', function (req, res, next){
+router.get('/Desserts', AuthController.authenticate, function (req, res, next){
     var desserts = Dessert.find(function(err, docs){
         var dessertChunks =[];
         var chunkSize =3;
@@ -50,7 +51,7 @@ router.get("/ForgotPassword", (req,res) => {
     res.render('ForgotPassword', {title:'Forgot Password'})
 })
 
-router.get('/Meals', function (req, res, next){
+router.get('/Meals', AuthController.authenticate, function (req, res, next){
     var meals = Meal.find(function(err, docs){
         var mealChunks =[];
         var chunkSize =3;
@@ -66,11 +67,11 @@ router.get("/OurMenu", (req,res) => {
     res.render('OurMenu', {title:'Choose Your Food Category'})
 })
 
-router.get("/PaymentDetails", (req,res) => {
+router.get("/PaymentDetails", AuthController.authenticate, (req,res) => {
     res.render('PaymentDetails', {title:'Payment Details'})
 })
 
-router.get("/PlaceOrder", (req,res) => {
+router.get("/PlaceOrder", AuthController.authenticate, (req,res) => {
     res.render('PlaceOrder', {title:'Place Your Order'})
 })
 
@@ -86,7 +87,7 @@ router.get("/Signup", (req,res) => {
     res.render('Signup', {title:'Register'})
 })
 
-router.get('/Snacks', function (req, res, next){
+router.get('/Snacks', AuthController.authenticate, function (req, res, next){
     var snacks = Snack.find(function(err, docs){
         var snackChunks =[];
         var chunkSize =3;
