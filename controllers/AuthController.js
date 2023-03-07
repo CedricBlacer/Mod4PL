@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 const ContactAndShippingDetails = require('../models/ContactAndShippingDetails')
 const PaymentDetails = require ('../models/PaymentDetails')
 
+
 //DISPLAY ALL USER ACCOUNTS
 const listAccounts = (req,res,next) =>{
     //Mongoose query that returns all accounts from db
@@ -63,8 +64,9 @@ const login = (req,res,next) => {
                     })
                 }
                 if(result){
-                    token = jwt.sign({name: account.name}, 'verySecretValue', {expiresIn: '20m'})
-                    res.redirect('/')
+                    token = jwt.sign({name: account.name}, "supersecretkey", {expiresIn: '20m'});
+                    req.session.loggedInUser = {name: account.name, token: token};
+                    res.redirect('/');
 
                 }else{
                     res.redirect('/WrongLogin')
@@ -81,7 +83,7 @@ const login = (req,res,next) => {
 const authenticateLogin = (req, res, next)=>{
     try{
         token
-        const decode = jwt.verify(token, 'verySecretValue')
+        const decode = jwt.verify(token, "supersecretkey")
 
         req.user = decode
 
@@ -196,7 +198,7 @@ const CollectGcashInfo1= (req,res,next) => {
 const authenticate = (req, res, next)=>{
     try{
         token
-        const decode = jwt.verify(token, 'verySecretValue')
+        const decode = jwt.verify(token, "supersecretkey")
 
         req.user = decode
         next()

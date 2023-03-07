@@ -5,8 +5,15 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const app = express();
 const path =require ('path');
+const session = require('express-session')
 
-
+// Set up session middleware AI
+app.use(session({
+    secret: 'supersecretkey',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}));
 
 //import auth routes
 const AuthRoute = require('./routes/auth')
