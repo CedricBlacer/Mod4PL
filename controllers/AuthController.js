@@ -65,7 +65,7 @@ const login = (req,res,next) => {
                 }
                 if(result){
                     token = jwt.sign({name: account.name}, "supersecretkey", {expiresIn: '20m'});
-                    req.session.loggedInUser = {name: account.name, token: token};
+                   //req.session.loggedInUser = {name: account.name, token: token};
                     res.redirect('/');
 
                 }else{

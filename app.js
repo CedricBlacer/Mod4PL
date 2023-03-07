@@ -7,6 +7,7 @@ const app = express();
 const path =require ('path');
 const session = require('express-session')
 
+/*
 // Set up session middleware AI
 app.use(session({
     secret: 'supersecretkey',
@@ -14,6 +15,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false }
 }));
+*/
 
 //import auth routes
 const AuthRoute = require('./routes/auth')
